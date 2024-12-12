@@ -1,6 +1,6 @@
 {
   "name": "is-sepa",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "List of SEPA countries and the currencies they use",
   "main": "index.js",
   "scripts": {
