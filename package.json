@@ -1,0 +1,34 @@
+{
+  "name": "is-sepa",
+  "version": "0.0.1",
+  "description": "List of SEPA countries and the currencies they use",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flash-oss/is-sepa.git"
+  },
+  "keywords": [
+    "sepa",
+    "is-sepa",
+    "country",
+    "sepa-countries",
+    "sepa-country"
+  ],
+  "author": "koresar",
+  "type": "module",
+  "exports": "./index.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flash-oss/is-sepa/issues"
+  },
+  "homepage": "https://github.com/flash-oss/is-sepa#readme"
+}
