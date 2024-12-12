@@ -13,9 +13,13 @@ const data = [
   ["FR", "EUR"], // France
   ["DE", "EUR"], // Germany
   ["GR", "EUR"], // Greece
+  ["GI", "GBP"], // Gibraltar
+  ["GG", "GBP"], // Guernsey
   ["HU", "HUF"], // Hungary
+  ["JE", "GBP"], // Jersey
   ["IE", "EUR"], // Ireland
   ["IS", "ISK"], // Iceland
+  ["IM", "GBP"], // Isle of Man
   ["IT", "EUR"], // Italy
   ["LV", "EUR"], // Latvia
   ["LI", "CHF"], // Liechtenstein
@@ -39,7 +43,7 @@ const data = [
   ["VA", "EUR"], // Vatican City State
 ];
 
-const map = new Map(data);
+export const map = new Map(data);
 
 /**
  * 2 char ISO code of a country.
