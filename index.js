@@ -1,53 +1,69 @@
+
 const data = [
-  ["AL", "ALL"], // Albania
-  ["AD", "EUR"], // Andorra
-  ["AT", "EUR"], // Austria
-  ["BE", "EUR"], // Belgium
-  ["BG", "BGN"], // Bulgaria
-  ["HR", "EUR"], // Croatia
-  ["CY", "EUR"], // Cyprus
-  ["CZ", "CZK"], // Czech Republic
-  ["DK", "DKK"], // Denmark
-  ["EE", "EUR"], // Estonia
-  ["FI", "EUR"], // Finland
-  ["FR", "EUR"], // France
-  ["DE", "EUR"], // Germany
-  ["GR", "EUR"], // Greece
-  ["GI", "GBP"], // Gibraltar
-  ["GG", "GBP"], // Guernsey
-  ["HU", "HUF"], // Hungary
-  ["JE", "GBP"], // Jersey
-  ["IE", "EUR"], // Ireland
-  ["IS", "ISK"], // Iceland
-  ["IM", "GBP"], // Isle of Man
-  ["IT", "EUR"], // Italy
-  ["LV", "EUR"], // Latvia
-  ["LI", "CHF"], // Liechtenstein
-  ["LT", "EUR"], // Lithuania
-  ["LU", "EUR"], // Luxembourg
-  ["MT", "EUR"], // Malta
-  ["MC", "EUR"], // Monaco
-  ["ME", "EUR"], // Montenegro
-  ["NL", "EUR"], // Netherlands
-  ["NO", "NOK"], // Norway
-  ["PL", "PLN"], // Poland
-  ["PT", "EUR"], // Portugal
-  ["RO", "RON"], // Romania
-  ["SM", "EUR"], // San Marino
-  ["SK", "EUR"], // Slovakia
-  ["SI", "EUR"], // Slovenia
-  ["ES", "EUR"], // Spain
-  ["SE", "SEK"], // Sweden
-  ["CH", "CHF"], // Switzerland
-  ["GB", "GBP"], // United Kingdom
-  ["VA", "EUR"], // Vatican City State
+    // jurisdiction ISO code, currency, IBAN prefix, country name
+    [ "FI", ["EUR", "FI", "Åland Islands" ]],
+    [ "AL", ["ALL", "AL", "Albania" ]],
+    [ "AD", ["EUR", "AD", "Andorra" ]],
+    [ "AT", ["EUR", "AT", "Austria" ]],
+    [ "PT", ["EUR", "PT", "Azores" ]],
+    [ "BE", ["EUR", "BE", "Belgium" ]],
+    [ "BG", ["BGN", "BG", "Bulgaria" ]],
+    [ "ES", ["EUR", "ES", "Canary Islands" ]],
+    [ "HR", ["EUR", "HR", "Croatia" ]],
+    [ "CY", ["EUR", "CY", "Cyprus" ]],
+    [ "CZ", ["CZK", "CZ", "Czech Republic" ]],
+    [ "DK", ["DKK", "DK", "Denmark" ]],
+    [ "EE", ["EUR", "EE", "Estonia" ]],
+    [ "FI", ["EUR", "FI", "Finland" ]],
+    [ "FR", ["EUR", "FR", "France" ]],
+    [ "GF", ["EUR", "FR", "French Guiana" ]],
+    [ "DE", ["EUR", "DE", "Germany" ]],
+    [ "GI", ["GIP", "GI", "Gibraltar" ]],
+    [ "GR", ["EUR", "GR", "Greece" ]],
+    [ "GP", ["EUR", "FR", "Guadeloupe" ]],
+    [ "GG", ["GBP", "GB", "Guernsey" ]],
+    [ "HU", ["HUF", "HU", "Hungary" ]],
+    [ "IS", ["ISK", "IS", "Iceland" ]],
+    [ "IE", ["EUR", "IE", "Ireland" ]],
+    [ "IM", ["GBP", "GB", "Isle of Man" ]],
+    [ "IT", ["EUR", "IT", "Italy" ]],
+    [ "JE", ["GBP", "GB", "Jersey" ]],
+    [ "LV", ["EUR", "LV", "Latvia" ]],
+    [ "LI", ["CHF", "LI", "Liechtenstein" ]],
+    [ "LT", ["EUR", "LT", "Lithuania" ]],
+    [ "LU", ["EUR", "LU", "Luxembourg" ]],
+    [ "PT", ["EUR", "PT", "Madeira" ]],
+    [ "MT", ["EUR", "MT", "Malta" ]],
+    [ "MQ", ["EUR", "FR", "Martinique" ]],
+    [ "YT", ["EUR", "FR", "Mayotte" ]],
+    [ "MD", ["MDL", "MD", "Moldova" ]],
+    [ "MC", ["EUR", "MC", "Monaco" ]],
+    [ "ME", ["EUR", "ME", "Montenegro" ]],
+    [ "MK", ["MKD", "MK", "North Macedonia" ]],
+    [ "BL", ["EUR", "FR", "Saint Barthélemy" ]],
+    [ "MF", ["EUR", "FR", "Country/territory" ]],
+    [ "NL", ["EUR", "NL", "Netherlands" ]],
+    [ "NO", ["NOK", "NO", "Norway" ]],
+    [ "PL", ["PLN", "PL", "Poland" ]],
+    [ "PT", ["EUR", "PT", "Portugal" ]],
+    [ "RE", ["EUR", "FR", "Réunion" ]],
+    [ "RO", ["RON", "RO", "Romania" ]],
+    [ "MF", ["EUR", "FR", "Saint Martin (French part)" ]],
+    [ "PM", ["EUR", "FR", "Saint Pierre and Miquelon" ]],
+    [ "SM", ["EUR", "SM", "San Marino" ]],
+    [ "SK", ["EUR", "SK", "Slovakia" ]],
+    [ "SI", ["EUR", "SI", "Slovenia" ]],
+    [ "ES", ["EUR", "ES", "Spain" ]],
+    [ "SE", ["SEK", "SE", "Sweden" ]],
+    [ "CH", ["CHF", "CH", "Switzerland" ]],
+    [ "GB", ["GBP", "GB", "United Kingdom" ]],
+    [ "VA", ["EUR", "VA", "Vatican City State" ]]
 ];
 
 export const map = new Map(data);
 
 /**
- * 2 char ISO code of a country.
- * @param iso2code {String}
+ * @param iso2code {String} 2 char ISO code of a country.
  * @returns {Boolean}
  */
 export function isSepaCountry(iso2code) {
@@ -55,10 +71,17 @@ export function isSepaCountry(iso2code) {
 }
 
 /**
- * 2 char ISO code of a country.
- * @param iso2code {String}
+ * @param iso2code {String} 2 char ISO code of a country.
  * @returns {String} 3 char code of the country currency
  */
 export function getCurrencyOfSepaCountry(iso2code) {
-  return map.get(iso2code);
+  return map.get(iso2code)?.[0];
+}
+
+/**
+ * @param iso2code {String} 2 char ISO code of a country.
+ * @returns {String} 2 char code of the jurisdiction IBAN prefix
+ */
+export function getIbanPrefixOfSepaCountry(iso2code) {
+  return map.get(iso2code)?.[1];
 }
