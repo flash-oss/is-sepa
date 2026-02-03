@@ -27,4 +27,4 @@ const arrayOfSepaCountries = [...map.keys()];
 This module is different from all the others:
 
 - We will maintain the freshness of the data for years.
-- Last update was in Jan 2025. Meaning, Albania, Montenegro, North Macedonia and Moldova are also in the list.
+- Last update was in Jan 2026.
