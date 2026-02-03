@@ -7,7 +7,7 @@ const data = [
     [ "AT", ["EUR", "AT", "Austria" ]],
     [ "PT", ["EUR", "PT", "Azores" ]],
     [ "BE", ["EUR", "BE", "Belgium" ]],
-    [ "BG", ["BGN", "BG", "Bulgaria" ]],
+    [ "BG", ["EUR", "BG", "Bulgaria" ]],
     [ "ES", ["EUR", "ES", "Canary Islands" ]],
     [ "HR", ["EUR", "HR", "Croatia" ]],
     [ "CY", ["EUR", "CY", "Cyprus" ]],
